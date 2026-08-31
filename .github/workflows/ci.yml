@@ -39,6 +39,9 @@ jobs:
       - name: Scan for secrets
         run: detect-secrets scan --baseline .secrets.baseline
 
+      - name: Run SAST
+        run: bandit -r src
+      
       - name: Check formatting
         run: ruff format --check .
 
